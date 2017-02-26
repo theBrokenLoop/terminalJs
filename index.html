@@ -1,25 +1,39 @@
 <html>
 <head>
-  <title>TerminalJs</title>
+    <title>TerminalJs</title>
 </head>
 <body onload="initTerminal();">
 <style>
-    .import{
+    .import {
         color: #ff1a71;
         font-weight: 300;
     }
-    .terminal{
+
+    .method {
+        color: #05b6c3;
+        font-weight: 300;
+    }
+
+    .string {
+        color: #20cc4a;
+        font-weight: 300;
+    }
+
+    .terminal {
         border-radius: 5px;
         min-height: 200px;
         background-color: #3e3e3e;
         padding: 20px;
+        color: white;
     }
 </style>
-  <p id="terminal">
-    My name is vipin chaudhary.
-      <br> I am trying to build a easy to use terminal for webpages
-      i am not afraid of anything alright
-  </p>
-  <script src="./terminal.js" type="application/javascript"></script>
+<p id="terminal">
+    import csv
+    <br>
+    import os
+    <br>
+    file = csv.reader("this is my file name", "rb")
+</p>
+<script src="./terminal.js" type="application/javascript"></script>
 </body>
 </html>
