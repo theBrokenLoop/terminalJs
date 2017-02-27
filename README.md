@@ -1,2 +1,2 @@
 # terminalJs
-Javascript library for an easy to build terminal in webpage
+A easy to use library for building a terminal on webpages of different languages
