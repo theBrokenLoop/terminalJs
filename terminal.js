@@ -26,7 +26,7 @@ function getAttributeHtml(text) {
 
 function methodReplacer(match, p1, p2, p3, offset, string) {
     alert("P1 = " + p1 + " p2 = " + p2 + " p3 = " + p3);
-    return getMethodHtml(p1);
+    return getMethodHtml(p1) + p2 + getMethodHtml(p3);
 }
 function attributeReplacer(match, p1, offset, string) {
     alert("p1 = " + p1);
@@ -43,9 +43,8 @@ function processLine(line) {
 
     line = line.replace(/import/, getImportHtml("import"));  // Check for "import" statement
     line = line.replace(/from/, getImportHtml("from"));  // Check for "from" statement
-    line = line.replace(/(\.[a-zA-Z]+\()(\w*)(\))/, methodReplacer);  // Check for methods
     line = line.replace(/(\.[a-zA-Z^(]+)/, attributeReplacer);  // Check for attributes
-
+    line = line.replace(/(\.[a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for methods
 
     console.log("Returning = " + line);
     return line;
