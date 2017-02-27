@@ -1,0 +1,30 @@
+.terminal {
+    font-size: 18px;
+    font-family: Lucida Console, Monaco5, monospace;
+    border-radius: 5px;
+    min-height: 200px;
+    background-color: #2B2B2B;
+    padding: 20px;
+    color: white;
+}
+.keyword {
+    color: rgba(238, 99, 4, 0.9);
+    font-weight: 300;
+}
+.method {
+    color: #05b6c3;
+    font-weight: 300;
+}
+.string {
+    color: #dddd3c;
+    font-weight: 300;
+}
+.attribute {
+    color: #0d70cf;
+    font-weight: 300;
+}
+.comment {
+    font-style: italic;
+    color: #a3a3a6;
+    font-weight: 300;
+}
