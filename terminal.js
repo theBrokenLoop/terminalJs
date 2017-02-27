@@ -10,34 +10,15 @@ function initTerminal() {
     populateIntoLineQueue(target);
 }
 
-function getImportHtml(text) {
-    return '<span class="import">' + text + '</span>';
-}
-function getMethodHtml(text) {
-    return '<span class="method">' + text + '</span>';
-}
-function getStringHtml(text) {
-    return '<span class="string">' + text + '</span>';
-}
-function getAttributeHtml(text) {
-    return '<span class="attribute">' + text + '</span>';
-}
-
-
-function methodReplacer(match, p1, p2, p3, offset, string) {
-    alert("P1 = " + p1 + " p2 = " + p2 + " p3 = " + p3);
-    return getMethodHtml(p1) + p2 + getMethodHtml(p3);
-}
-function attributeReplacer(match, p1, offset, string) {
-    alert("p1 = " + p1);
-    return getAttributeHtml(p1);
-}
-
-
+/**
+ * Process lines through available theme
+ * @param line
+ * @return {*}
+ */
 function processLine(line) {
+
     /// Some preliminary operations on line
     line.trim().replace("  ", "").replace(" ", "");
-    // console.log("got string = "+line);
 
     /// python's reserved characters Regex Patterns matching
 
@@ -49,10 +30,14 @@ function processLine(line) {
     console.log("Returning = " + line);
     return line;
 }
+
+/**
+ * Divides text into lines using '\n' character
+ * @param {Element} target
+ */
 function populateIntoLineQueue(target) {
     var html = String(target.innerHTML).trim();
-    var start = html.search(/\w/);
-    var end = start;
+    var end = html.search(/\w/);
     while (end != -1) {
         end = html.indexOf("\n");
         linesQueue.push(html.slice(0, end));
@@ -63,6 +48,75 @@ function populateIntoLineQueue(target) {
     for (var i = 0; i < linesQueue.length; i++) {
         temp += processLine(linesQueue[i]);
     }
-    console.log(temp);
     target.innerHTML = temp;
+}
+
+/******************* Regex Pattern Formatter Functions \*****************/
+
+/**
+ * Regex pattern formatter function
+ * Take 3 parameter , method name , method arguments and method closing parenthesis and return with attached class
+ * @param match
+ * @param p1
+ * @param p2
+ * @param p3
+ * @param offset
+ * @param string
+ * @return {string}
+ */
+function methodReplacer(match, p1, p2, p3, offset, string) {
+    alert("P1 = " + p1 + " p2 = " + p2 + " p3 = " + p3);
+    return getMethodHtml(p1) + p2 + getMethodHtml(p3);
+}
+
+/**
+ * Regex pattern formatter function
+ * Take 1 parameter , attribute name and  return with attached class
+ * @param match
+ * @param p1
+ * @param offset
+ * @param string
+ * @return {string}
+ */
+function attributeReplacer(match, p1, offset, string) {
+    alert("p1 = " + p1);
+    return getAttributeHtml(p1);
+}
+
+/******************* Class Attach Functions \*****************/
+
+/**
+ * Take raw line as input and return line with attached import class
+ * @param text
+ * @return {string}
+ */
+function getImportHtml(text) {
+    return '<span class="import">' + text + '</span>';
+}
+
+/**
+ * Take raw line as input and return line with attached method class
+ * @param text
+ * @return {string}
+ */
+function getMethodHtml(text) {
+    return '<span class="method">' + text + '</span>';
+}
+
+/**
+ * Take raw line as input and return line with attached string class
+ * @param text
+ * @return {string}
+ */
+function getStringHtml(text) {
+    return '<span class="string">' + text + '</span>';
+}
+
+/**
+ * Take raw line as input and return line with attached attribute class
+ * @param text
+ * @return {string}
+ */
+function getAttributeHtml(text) {
+    return '<span class="attribute">' + text + '</span>';
 }
