@@ -3,10 +3,6 @@ function initTerminal() {
     var target = document.getElementById("terminal");
     /// Add terminal class for DOM
     target.className += " terminal";
-    // var line = ".class()";
-    // if(line.search(/\.[a-z]+]/)){
-    //     alert("Found class");
-    // }
     populateIntoLineQueue(target);
 }
 
@@ -22,16 +18,14 @@ function processLine(line) {
 
     /// python's reserved characters Regex Patterns matching
 
-
     line = line.replace(/(["'][^,]*["'])/g, stringReplacer);  // Check for methods
     line = line.replace(/(\.[a-zA-Z^(]+)/, attributeReplacer);  // Check for attributes
     line = line.replace(/(\.[a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for attribute methods
     line = line.replace(/([a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for normal methods
-
     line = line.replace(/(#.*)/, commentReplacer);  // Check for comments
 
-    line = line.replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s)/g, keywordReplacer);  // Check for "import" statement
-    // line = line.replace(/from/g, getImportHtml("from"));  // Check for "from" statement
+    /// Check for "import" statement
+    line = line.replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s)/g, keywordReplacer);
 
     console.log("Returning = " + line);
     return line;
@@ -61,7 +55,7 @@ function populateIntoLineQueue(target) {
 
 /**
  * Regex pattern formatter function
- * Take 3 parameter , method name , method arguments and method closing parenthesis and return with attached class
+ * Take 3 parameter , method name , method arguments and method closing parenthesis and return with attached method class
  * @param match
  * @param p1
  * @param p2
@@ -76,7 +70,7 @@ function methodReplacer(match, p1, p2, p3, offset, string) {
 
 /**
  * Regex pattern formatter function
- * Take 1 parameter , attribute name and  return with attached class
+ * Take 1 parameter , attribute name and  return with attached attribute class
  * @param match
  * @param p1
  * @param offset
@@ -87,13 +81,41 @@ function attributeReplacer(match, p1, offset, string) {
     return getAttributeHtml(p1);
 }
 
+/**
+ * Regex pattern formatter function
+ * Take 1 parameter , string and  return with attached string class
+ * @param match
+ * @param p1
+ * @param offset
+ * @param string
+ * @return {string}
+ */
 function stringReplacer(match, p1, offset, string) {
     return getStringHtml(p1);
 }
 
+/**
+ * Regex pattern formatter function
+ * Take 1 parameter , # type comments and  return with attached comment class
+ * @param match
+ * @param p1
+ * @param offset
+ * @param string
+ * @return {string}
+ */
 function commentReplacer(match, p1, offset, string) {
     return getCommentHtml(p1);
 }
+
+/**
+ * Regex pattern formatter function
+ * Take 1 parameter , language keywords and return with attached keyword class
+ * @param match
+ * @param p1
+ * @param offset
+ * @param string
+ * @return {string}
+ */
 function keywordReplacer(match, p1, offset, string) {
     return getKeywordHtml(p1);
 }
@@ -101,7 +123,7 @@ function keywordReplacer(match, p1, offset, string) {
 /******************* Class Attach Functions \*****************/
 
 /**
- * Take raw line as input and return line with attached import class
+ * Take raw line as input and return line with attached keyword class
  * @param text
  * @return {string}
  */
@@ -136,6 +158,11 @@ function getAttributeHtml(text) {
     return '<span class="attribute">' + text + '</span>';
 }
 
+/**
+ * Take raw line as input and return line with attached comment class
+ * @param text
+ * @return {string}
+ */
 function getCommentHtml(text) {
     return '<span class="comment">' + text + '</span>';
 }
