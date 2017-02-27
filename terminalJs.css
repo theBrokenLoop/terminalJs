@@ -7,22 +7,24 @@
     padding: 20px;
     color: white;
 }
-.import {
-    color: #bc1872;
-    font-weight: 600;
+.keyword {
+    color: rgba(238, 99, 4, 0.9);
+    font-weight: 300;
 }
-
 .method {
     color: #05b6c3;
     font-weight: 300;
 }
-
 .string {
-    color: #20cc4a;
+    color: #dddd3c;
     font-weight: 300;
 }
-
 .attribute {
     color: #0d70cf;
+    font-weight: 300;
+}
+.comment {
+    font-style: italic;
+    color: #a3a3a6;
     font-weight: 300;
 }

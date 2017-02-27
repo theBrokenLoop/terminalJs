@@ -22,10 +22,16 @@ function processLine(line) {
 
     /// python's reserved characters Regex Patterns matching
 
-    line = line.replace(/import/, getImportHtml("import"));  // Check for "import" statement
-    line = line.replace(/from/, getImportHtml("from"));  // Check for "from" statement
+
+    line = line.replace(/(["'][^,]*["'])/g, stringReplacer);  // Check for methods
     line = line.replace(/(\.[a-zA-Z^(]+)/, attributeReplacer);  // Check for attributes
-    line = line.replace(/(\.[a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for methods
+    line = line.replace(/(\.[a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for attribute methods
+    line = line.replace(/([a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for normal methods
+
+    line = line.replace(/(#.*)/, commentReplacer);  // Check for comments
+
+    line = line.replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s)/g, keywordReplacer);  // Check for "import" statement
+    // line = line.replace(/from/g, getImportHtml("from"));  // Check for "from" statement
 
     console.log("Returning = " + line);
     return line;
@@ -65,7 +71,6 @@ function populateIntoLineQueue(target) {
  * @return {string}
  */
 function methodReplacer(match, p1, p2, p3, offset, string) {
-    alert("P1 = " + p1 + " p2 = " + p2 + " p3 = " + p3);
     return getMethodHtml(p1) + p2 + getMethodHtml(p3);
 }
 
@@ -79,8 +84,18 @@ function methodReplacer(match, p1, p2, p3, offset, string) {
  * @return {string}
  */
 function attributeReplacer(match, p1, offset, string) {
-    alert("p1 = " + p1);
     return getAttributeHtml(p1);
+}
+
+function stringReplacer(match, p1, offset, string) {
+    return getStringHtml(p1);
+}
+
+function commentReplacer(match, p1, offset, string) {
+    return getCommentHtml(p1);
+}
+function keywordReplacer(match, p1, offset, string) {
+    return getKeywordHtml(p1);
 }
 
 /******************* Class Attach Functions \*****************/
@@ -90,8 +105,8 @@ function attributeReplacer(match, p1, offset, string) {
  * @param text
  * @return {string}
  */
-function getImportHtml(text) {
-    return '<span class="import">' + text + '</span>';
+function getKeywordHtml(text) {
+    return '<span class="keyword">' + text + '</span>';
 }
 
 /**
@@ -119,4 +134,8 @@ function getStringHtml(text) {
  */
 function getAttributeHtml(text) {
     return '<span class="attribute">' + text + '</span>';
+}
+
+function getCommentHtml(text) {
+    return '<span class="comment">' + text + '</span>';
 }

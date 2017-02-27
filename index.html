@@ -10,10 +10,28 @@
     <br>
     from datetime import datetime
     <br>
-    file = csv.reader("this is my file name", "rb")
+    # This is comment
     <br>
-    print file.sizea
-</p>
+    file = csv.reader("this is my file name", 'rb')
+    <br>
+    print(file.size)
+    <br>
+    for i in range(10):
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;
+    if i < 3:
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    print("hello")
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    continue
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    break
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;
+    else:
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    print "hi"
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    pass
+    a</p>
 <link href="./terminalJs.css" rel="stylesheet">
 <script src="./terminal.js" type="application/javascript"></script>
 </body>
