@@ -9,6 +9,14 @@
     <title>TerminalJs</title>
 </head>
 <body onload="initTerminal();">
+<style>
+    #terminals-tab{
+        padding: 20px;
+        border-left: solid 1px #ddd;
+        border-right: solid 1px #ddd;
+        border-bottom: solid 1px #ddd;
+    }
+</style>
 <div class="container">
     <h2 class="text-center">Terminal-js</h2>
     <h4>Available languages</h4>
@@ -18,13 +26,13 @@
         <li><a data-toggle="tab" href="#cpp">C++</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content" id="terminals-tab">
         <div id="python" class="tab-pane fade in active">
             <br>
             <h4>Select Theme</h4>
             <hr>
             <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#dark">Home</a></li>
+                <li class="active"><a data-toggle="pill" href="#dark">Dark</a></li>
                 <li><a data-toggle="pill" href="#light">Light</a></li>
             </ul>
             <br>
@@ -102,12 +110,10 @@
             </div>
         </div>
         <div id="java" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Some content in menu 1.</p>
+            <h3>Coming Soon ...</h3>
         </div>
         <div id="cpp" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Some content in menu 2.</p>
+            <h3>Coming Soon ...</h3>
         </div>
     </div>
 </div>
