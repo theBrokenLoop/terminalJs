@@ -10,9 +10,20 @@ A easy to use library for building a terminal on webpages of different languages
 4. C++
 5. Curl
 
+**More coming soon**
+
 ## Screen shots
 1. `Python`
 
 <img src="/python-terminal.png" style="border-radius: 4px">
 
-More coming soon
+**More coming soon**
+
+## Guidelines for contibuting in project
+1. Look for any issue in issue tracker
+2. Submit issues
+3. Enhance the existing languages branch
+4. Create new language branch
+
+## About the author
+> Vipin Chaudhary (CSE Undergrad in IIIT Delhi, India)
