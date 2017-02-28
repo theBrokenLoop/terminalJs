@@ -5,56 +5,78 @@
     min-height: 200px;
     padding: 20px;
 }
-.dark{
+
+.dark {
     background-color: #2B2B2B;
-    color: white;
+    color: #ededed;
 }
-.light{
+
+.light {
     background-color: #dedede;
     color: #2B2B2B;
 }
+
 /* Python dark color schemes starts */
 .dark.python .keyword {
     color: rgba(238, 99, 4, 0.9);
     font-weight: 300;
 }
+
 .terminal.dark.python .method {
     color: #05b6c3;
     font-weight: 300;
 }
-.dark.python  .string {
+
+.dark.python .string {
     color: #dddd3c;
     font-weight: 300;
 }
-.dark.python  .attribute {
+
+.dark.python .attribute {
     color: #0d70cf;
     font-weight: 300;
 }
-.dark.python  .comment {
+
+.dark.python .comment {
     font-style: italic;
     color: #a3a3a6;
     font-weight: 300;
 }
+
+.dark.python .number {
+    color: rgba(186, 33, 137, 0.9);
+    font-weight: 300;
+}
+
 /* Python dark color schemes starts */
 /* Python light color schemes starts */
 .light.python .keyword {
     color: rgba(186, 33, 137, 0.9);
     font-weight: 300;
 }
+
 .light.python .method {
     color: #c3382d;
     font-weight: 300;
 }
-.light.python  .string {
+
+.light.python .string {
     color: #239e27;
     font-weight: 300;
 }
-.light.python  .attribute {
-    color: #0d70cf;
+
+.light.python .attribute {
+    color: #27b3a6;
     font-weight: 300;
 }
-.light.python  .comment {
+
+.light.python .comment {
     font-style: italic;
-    color: #a3a3a6;
+    color: #8b8b8e;
+    font-weight: 300;
+}
+
+.light.python .number {
+    color: rgba(27, 116, 245, 0.9);
     font-weight: 300;
 }

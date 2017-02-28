@@ -73,14 +73,14 @@ function processLine(line) {
 
     /// python's reserved characters Regex Patterns matching
 
-    line = line.replace(/(["'][^,]*["'])/g, stringReplacer);  // Check for methods
-    line = line.replace(/(\.[a-zA-Z^(]+)/, attributeReplacer);  // Check for attributes
-    line = line.replace(/(\.[a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for attribute methods
-    line = line.replace(/([a-zA-Z]+\()(.*)(\))/, methodReplacer);  // Check for normal methods
-    line = line.replace(/(#.*)/, commentReplacer);  // Check for comments
-
+    line = line.replace(/(["'][^,]*["'])/g, stringReplacer)  // Check for methods
+    .replace(/(\.[a-zA-Z^(]+)/g, attributeReplacer)  // Check for attributes
+    .replace(/([\s(\[])(\d+)([\s)\]:])/g, numberReplacer)
+    .replace(/(\.[a-zA-Z]+\()(.*)(\))/g, methodReplacer)  // Check for attribute methods
+    .replace(/([a-zA-Z]+\()(.*)(\))/g, methodReplacer)  // Check for normal methods
+    .replace(/(#.*)/, commentReplacer)  // Check for comments
     /// Check for "import" statement
-    line = line.replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s|^if|^el[is][fe])/g, keywordReplacer);
+    .replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s|^if|^el[is][fe])/g, keywordReplacer);
 
     console.log("Returning = " + line);
     return line;
@@ -155,6 +155,10 @@ function keywordReplacer(match, p1, offset, string) {
     return getKeywordHtml(p1);
 }
 
+function numberReplacer(match, p1, p2, p3, offset, string) {
+    return p1 + getNumberHtml(p2) + p3;
+}
+
 /******************* Class Attach Functions \*****************/
 
 /**
@@ -200,4 +204,8 @@ function getAttributeHtml(text) {
  */
 function getCommentHtml(text) {
     return '<span class="comment">' + text + '</span>';
+}
+
+function getNumberHtml(text) {
+    return '<span class="number">' + text + '</span>';
 }
