@@ -9,79 +9,105 @@
     <title>TerminalJs</title>
 </head>
 <body onload="initTerminal();">
-<div class="container-fluid">
-    <div class="row">
-        <h2 class="text-center">Python Terminal</h2>
-        <hr>
-        <div class="col-sm-6">
-            <p id="terminal1">
-                import csv
-                <br>
-                import os
-                <br>
-                from datetime import datetime
-                <br>
-                # This is comment
-                <br>
-                file = csv.reader("this is my file name", 'rb', .4)
-                <br>
-                print(file.size)
-                <br>
-                for i in range(10):
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                if i < 3:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                print("hello")
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                continue
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                break
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                elif i > 8:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                print "how are you"
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                else:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                print "hi"
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                pass
-                a</p>
+<div class="container">
+    <h2 class="text-center">Terminal-js</h2>
+    <h4>Available languages</h4>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#python">Python</a></li>
+        <li><a data-toggle="tab" href="#java">Java</a></li>
+        <li><a data-toggle="tab" href="#cpp">C++</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="python" class="tab-pane fade in active">
+            <br>
+            <h4>Select Theme</h4>
+            <hr>
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#dark">Home</a></li>
+                <li><a data-toggle="pill" href="#light">Light</a></li>
+            </ul>
+            <br>
+            <div class="tab-content">
+                <div id="dark" class="tab-pane fade in active">
+                    <p id="terminal1">
+                        import csv
+                        <br>
+                        import os
+                        <br>
+                        from datetime import datetime
+                        <br>
+                        # This is comment
+                        <br>
+                        file = csv.reader("this is my file name", 'rb', .4)
+                        <br>
+                        print(file.size)
+                        <br>
+                        for i in range(10):
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        if i < 3:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        print("hello")
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        continue
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        break
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        elif i > 8:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        print "how are you"
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        else:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        print "hi"
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        pass
+                        a</p>
+                </div>
+                <div id="light" class="tab-pane fade">
+                    <p id="terminal2">
+                        import csv
+                        <br>
+                        import os
+                        <br>
+                        from datetime import datetime
+                        <br>
+                        # This is comment
+                        <br>
+                        file = csv.reader("this is my file name", 'rb', .4)
+                        <br>
+                        print(file.size)
+                        <br>
+                        for i in range(10):
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        if i < 3:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        print("hello")
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        continue
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        break
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        elif i > 8:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        print "how are you"
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        else:
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        print "hi"
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        pass
+                        a</p>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6">
-            <p id="terminal2">
-                import csv
-                <br>
-                import os
-                <br>
-                from datetime import datetime
-                <br>
-                # This is comment
-                <br>
-                file = csv.reader("this is my file name", 'rb', .4)
-                <br>
-                print(file.size)
-                <br>
-                for i in range(10):
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                if i < 3:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                print("hello")
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                continue
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                break
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                elif i > 8:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                print "how are you"
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                else:
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                print "hi"
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                pass
-                a</p>
+        <div id="java" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Some content in menu 1.</p>
+        </div>
+        <div id="cpp" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
         </div>
     </div>
 </div>
