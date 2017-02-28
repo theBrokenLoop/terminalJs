@@ -29,8 +29,8 @@ Terminal.prototype = {
      * Function to initiate the terminal
      */
     init: function () {
-        alert("Creating terminal " + this.language + " with " + this.theme);
-        this.target.className += " terminal " + this.language;
+        // alert("Creating terminal " + this.language + " with " + this.theme);
+        this.target.className += " terminal "+this.theme + " " + this.language;
         this.populateIntoLineQueue();
     },
     /**
@@ -54,8 +54,11 @@ Terminal.prototype = {
 };
 
 function initTerminal() {
-    var terminal = new Terminal("terminal", "python", "dark");
-    terminal.init();
+    var terminal1 = new Terminal("terminal1", "python", "dark");
+    terminal1.init();
+
+    var terminal2 = new Terminal("terminal2", "python", "light");
+    terminal2.init();
 }
 
 /**
@@ -77,7 +80,7 @@ function processLine(line) {
     line = line.replace(/(#.*)/, commentReplacer);  // Check for comments
 
     /// Check for "import" statement
-    line = line.replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s)/g, keywordReplacer);
+    line = line.replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s|^if|^el[is][fe])/g, keywordReplacer);
 
     console.log("Returning = " + line);
     return line;

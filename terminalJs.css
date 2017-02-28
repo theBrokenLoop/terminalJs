@@ -4,32 +4,57 @@
     border-radius: 5px;
     min-height: 200px;
     padding: 20px;
-    color: white;
-    background-color: #2B2B2B;
 }
 .dark{
+    background-color: #2B2B2B;
+    color: white;
+}
+.light{
+    background-color: #dedede;
+    color: #2B2B2B;
 }
 /* Python dark color schemes starts */
-.python .keyword {
+.dark.python .keyword {
     color: rgba(238, 99, 4, 0.9);
     font-weight: 300;
 }
-.python  .method {
+.terminal.dark.python .method {
     color: #05b6c3;
     font-weight: 300;
 }
-.python  .string {
+.dark.python  .string {
     color: #dddd3c;
     font-weight: 300;
 }
-.python  .attribute {
+.dark.python  .attribute {
     color: #0d70cf;
     font-weight: 300;
 }
-.python  .comment {
+.dark.python  .comment {
     font-style: italic;
     color: #a3a3a6;
     font-weight: 300;
 }
 /* Python dark color schemes starts */
 /* Python light color schemes starts */
+.light.python .keyword {
+    color: rgba(186, 33, 137, 0.9);
+    font-weight: 300;
+}
+.light.python .method {
+    color: #c3382d;
+    font-weight: 300;
+}
+.light.python  .string {
+    color: #239e27;
+    font-weight: 300;
+}
+.light.python  .attribute {
+    color: #0d70cf;
+    font-weight: 300;
+}
+.light.python  .comment {
+    font-style: italic;
+    color: #a3a3a6;
+    font-weight: 300;
+}
