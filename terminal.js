@@ -1,5 +1,5 @@
 /**
- @name TerminalJs
+ @projectName TerminalJs
  @author Vipin Chaudhary
  @source https://github.com/thebrokenloop/terminalJs
  */
