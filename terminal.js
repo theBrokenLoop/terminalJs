@@ -59,6 +59,7 @@ function initTerminal() {
 
     var terminal2 = new Terminal("terminal2", "python", "light");
     terminal2.init();
+
 }
 
 /**
@@ -75,7 +76,7 @@ function processLine(line) {
 
     line = line.replace(/(["'][^,]*["'])/g, stringReplacer)  // Check for methods
     .replace(/(\.[a-zA-Z^(]+)/g, attributeReplacer)  // Check for attributes
-    .replace(/([\s(\[])(\d+)([\s)\]:])/g, numberReplacer)
+    .replace(/([\s(\[])(\d*\.?\d*)([\s)\]:])/g, numberReplacer)  // Check for numbers
     .replace(/(\.[a-zA-Z]+\()(.*)(\))/g, methodReplacer)  // Check for attribute methods
     .replace(/([a-zA-Z]+\()(.*)(\))/g, methodReplacer)  // Check for normal methods
     .replace(/(#.*)/, commentReplacer)  // Check for comments
@@ -154,7 +155,16 @@ function commentReplacer(match, p1, offset, string) {
 function keywordReplacer(match, p1, offset, string) {
     return getKeywordHtml(p1);
 }
-
+/**
+ * Regex pattern formatter function for numbers
+ * @param match
+ * @param p1
+ * @param p2
+ * @param p3
+ * @param offset
+ * @param string
+ * @return {*}
+ */
 function numberReplacer(match, p1, p2, p3, offset, string) {
     return p1 + getNumberHtml(p2) + p3;
 }
@@ -205,7 +215,11 @@ function getAttributeHtml(text) {
 function getCommentHtml(text) {
     return '<span class="comment">' + text + '</span>';
 }
-
+/**
+ * Take raw line as input and return line with attached number class
+ * @param text
+ * @return {string}
+ */
 function getNumberHtml(text) {
     return '<span class="number">' + text + '</span>';
 }
