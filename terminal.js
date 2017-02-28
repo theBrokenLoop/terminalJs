@@ -1,8 +1,8 @@
 var linesQueue = [];
-function initTerminal() {
+function initTerminal(language, theme) {
     var target = document.getElementById("terminal");
     /// Add terminal class for DOM
-    target.className += " terminal";
+    target.className += " terminal "+language;
     populateIntoLineQueue(target);
 }
 
