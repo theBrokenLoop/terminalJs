@@ -26,4 +26,4 @@ A easy to use library for building a terminal on webpages of different languages
 4. Create new language branch
 
 ## About the author
-> Vipin Chaudhary (CSE Undergrad in IIIT Delhi, India)
+> @vipin14119 Vipin Chaudhary (CSE Undergrad in IIIT Delhi, India)
