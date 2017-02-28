@@ -3,4 +3,5 @@
 
 A easy to use library for building a terminal on webpages of different languages
 
-<img src="/python-terminal.png">
+### Python language terminal
+<img src="/python-terminal.png" style="border-radius: 4px">

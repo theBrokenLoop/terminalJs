@@ -1,9 +1,61 @@
-var linesQueue = [];
+/**
+ @name TerminalJs
+ @author Vipin Chaudhary
+ @source https://github.com/thebrokenloop/terminalJs
+ */
+
+/**
+ * Terminal Base Class
+ * @param target Dom in html document
+ * @param language that has to be shown in terminal
+ * @param theme
+ * @constructor Terminal
+ */
+function Terminal(target, language, theme) {
+    this.target = document.getElementById(target);
+    this.language = language;
+    this.theme = theme;
+    this.linesQueue = [];
+}
+
+/**
+ * Extending prototype functions in Terminal base class
+ * @type {{constructor: Terminal, init: Terminal.init, populateIntoLineQueue: Terminal.populateIntoLineQueue}}
+ */
+Terminal.prototype = {
+    constructor: Terminal,
+
+    /**
+     * Function to initiate the terminal
+     */
+    init: function () {
+        alert("Creating terminal " + this.language + " with " + this.theme);
+        this.target.className += " terminal " + this.language;
+        this.populateIntoLineQueue();
+    },
+    /**
+     * Divides text into lines using '\n' character
+     */
+    populateIntoLineQueue: function () {
+        var html = String(this.target.innerHTML).trim();
+        var end = html.search(/\w/);
+        while (end != -1) {
+            end = html.indexOf("\n");
+            this.linesQueue.push(html.slice(0, end));
+            html = html.substr(end + 1, html.length).trim();
+        }
+        console.log(this.linesQueue);
+        var temp = '';
+        for (var i = 0; i < this.linesQueue.length; i++) {
+            temp += processLine(this.linesQueue[i]);
+        }
+        this.target.innerHTML = temp;
+    }
+};
+
 function initTerminal() {
-    var target = document.getElementById("terminal");
-    /// Add terminal class for DOM
-    target.className += " terminal";
-    populateIntoLineQueue(target);
+    var terminal = new Terminal("terminal", "python", "dark");
+    terminal.init();
 }
 
 /**
@@ -29,26 +81,6 @@ function processLine(line) {
 
     console.log("Returning = " + line);
     return line;
-}
-
-/**
- * Divides text into lines using '\n' character
- * @param {Element} target
- */
-function populateIntoLineQueue(target) {
-    var html = String(target.innerHTML).trim();
-    var end = html.search(/\w/);
-    while (end != -1) {
-        end = html.indexOf("\n");
-        linesQueue.push(html.slice(0, end));
-        html = html.substr(end + 1, html.length).trim();
-    }
-    console.log(linesQueue);
-    var temp = '';
-    for (var i = 0; i < linesQueue.length; i++) {
-        temp += processLine(linesQueue[i]);
-    }
-    target.innerHTML = temp;
 }
 
 /******************* Regex Pattern Formatter Functions \*****************/
