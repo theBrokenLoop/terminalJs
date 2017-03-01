@@ -80,3 +80,36 @@
     color: rgba(27, 116, 245, 0.9);
     font-weight: 300;
 }
+/* Python light color schemes starts */
+
+/* Cpp dark color schemes starts */
+.dark.cpp .keyword {
+    color: rgba(238, 99, 4, 0.9);
+    font-weight: 300;
+}
+
+.dark.cpp .method {
+    color: #05b6c3;
+    font-weight: 300;
+}
+
+.dark.cpp .string {
+    color: #dddd3c;
+    font-weight: 300;
+}
+
+.dark.cpp .attribute {
+    color: #0d70cf;
+    font-weight: 300;
+}
+
+.dark.cpp .comment {
+    font-style: italic;
+    color: #a3a3a6;
+    font-weight: 300;
+}
+
+.dark.cpp .number {
+    color: rgba(186, 33, 137, 0.9);
+    font-weight: 300;
+}

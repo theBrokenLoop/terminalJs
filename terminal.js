@@ -46,8 +46,9 @@ Terminal.prototype = {
         }
         console.log(this.linesQueue);
         var temp = '';
+        var processLine = new ProcessLine(this.language);
         for (var i = 0; i < this.linesQueue.length; i++) {
-            temp += processLine(this.linesQueue[i]);
+            temp += processLine.process(this.linesQueue[i]);
         }
         this.target.innerHTML = temp;
     }
@@ -60,14 +61,67 @@ function initTerminal() {
     var terminal2 = new Terminal("terminal2", "python", "light");
     terminal2.init();
 
+    var terminal3 = new Terminal("terminal3", "cpp", "dark");
+    terminal3.init();
+
+    var terminal4 = new Terminal("terminal4", "cpp", "light");
+    terminal4.init();
+
 }
 
+function ProcessLine(language){
+  this.language = language;
+}
+ProcessLine.prototype = {
+  constructor: ProcessLine,
+  process: function(line){
+    /// Some preliminary operations on line
+    line = line.trim().replace("  ", "");
+
+    line = line.replace(/(["'][^,]*["'])/g, stringReplacer)  // Check for methods
+    .replace(/(\.[a-zA-Z^(]+)/g, attributeReplacer)  // Check for attributes
+    .replace(/([\s(\[])(\d*\.?\d*)([\s)\]:])/g, numberReplacer)  // Check for numbers
+    .replace(/(\.[a-zA-Z]+\()(.*)(\))/g, methodReplacer)  // Check for attribute methods
+    .replace(/([a-zA-Z]+\()(.*)(\))/g, methodReplacer);  // Check for normal methods
+    /// Generic language Operations
+    switch (this.language) {
+      case 'python':
+        line = this.python(line);
+        break;
+      case 'cpp':
+        line = this.cpp(line);
+        break;
+      case 'java':
+        line = this.java(line);
+        break;
+      default:
+    }
+    return line;
+  },
+  python: function(line){
+    /// Python Specific Operations
+    line = line.replace(/(#.*)/, commentReplacer)  // Check for comments
+    /// python's reserved characters Regex Patterns matching
+    .replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s|^if|^el[is][fe])/g, keywordReplacer);
+    // console.log("Returning = " + line);
+    return line;
+  },
+  cpp: function(line){
+    /// Cpp or C Specific Operations
+    line = line.replace(/(\/\/.*)/, commentReplacer)  // Check for comments
+    /// python's reserved characters Regex Patterns matching
+    .replace(/(^#include|\s?\(?int\s|\s?\(?long\s|^float\s|^char\s|^break;|^if|^else|^else\sif)/g, keywordReplacer);
+    // console.log("Returning = " + line);
+    return line;
+  }
+
+};
 /**
  * Process lines through available theme
  * @param line
  * @return {*}
  */
-function processLine(line) {
+function processPythonLine(line) {
 
     /// Some preliminary operations on line
     line.trim().replace("  ", "").replace(" ", "");

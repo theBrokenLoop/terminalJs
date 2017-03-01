@@ -21,13 +21,13 @@
     <h2 class="text-center">Terminal-js</h2>
     <h4>Available languages</h4>
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#python">Python</a></li>
+        <li><a data-toggle="tab" href="#python">Python</a></li>
         <li><a data-toggle="tab" href="#java">Java</a></li>
-        <li><a data-toggle="tab" href="#cpp">C++</a></li>
+        <li class="active"><a data-toggle="tab" href="#cpp">C++</a></li>
     </ul>
 
     <div class="tab-content" id="terminals-tab">
-        <div id="python" class="tab-pane fade in active">
+        <div id="python" class="tab-pane fade">
             <br>
             <h4>Select Theme</h4>
             <hr>
@@ -112,11 +112,77 @@
         <div id="java" class="tab-pane fade">
             <h3>Coming Soon ...</h3>
         </div>
-        <div id="cpp" class="tab-pane fade">
-            <h3>Coming Soon ...</h3>
+        <div id="cpp" class="tab-pane fade in active">
+          <br>
+          <h4>Select Theme</h4>
+          <hr>
+          <ul class="nav nav-pills">
+              <li class="active"><a data-toggle="pill" href="#cpp-dark">Dark</a></li>
+              <li><a data-toggle="pill" href="#cpp-light">Light</a></li>
+          </ul>
+          <br>
+          <div class="tab-content">
+              <div id="cpp-dark" class="tab-pane fade in active">
+                  <p id="terminal3">
+                      #include "headher.h"
+                      <br>
+                      #define MAX 100
+                      <br>
+                      // This is comment
+                      <br>
+                      int main(){
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      int a, b;
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      scanf("%d %d", &a, &b);
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      printf("value of a: %d value of b: %d", a, b);
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      return 0;
+                      <br>}
+                      <br>
+                      void bigger(long long int a, long long int b){
+                      a</p>
+              </div>
+              <div id="cpp-light" class="tab-pane fade">
+                  <p id="terminal4">
+                      import csv
+                      <br>
+                      import os
+                      <br>
+                      from datetime import datetime
+                      <br>
+                      # This is comment
+                      <br>
+                      file = csv.reader("this is my file name", 'rb', .4)
+                      <br>
+                      print(file.size)
+                      <br>
+                      for i in range(10):
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      if i < 3:
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      print("hello")
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      continue
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      break
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      elif i > 8:
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      print "how are you"
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                      else:
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      print "hi"
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      pass
+                      a</p>
+              </div>
+          </div>
         </div>
     </div>
 </div>
-
+<br><br>
 </body>
 </html>
