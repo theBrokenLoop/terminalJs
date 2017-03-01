@@ -46,7 +46,7 @@ Terminal.prototype = {
         }
         console.log(this.linesQueue);
         var temp = '';
-        var processLine = new ProcessLine('python');
+        var processLine = new ProcessLine(this.language);
         for (var i = 0; i < this.linesQueue.length; i++) {
             temp += processLine.process(this.linesQueue[i]);
         }
@@ -60,6 +60,12 @@ function initTerminal() {
 
     var terminal2 = new Terminal("terminal2", "python", "light");
     terminal2.init();
+
+    var terminal3 = new Terminal("terminal3", "cpp", "dark");
+    terminal3.init();
+
+    var terminal4 = new Terminal("terminal4", "cpp", "light");
+    terminal4.init();
 
 }
 
@@ -80,17 +86,17 @@ ProcessLine.prototype = {
     /// Generic language Operations
     switch (this.language) {
       case 'python':
-        return this.python(line);
+        line = this.python(line);
         break;
       case 'cpp':
-        return this.cpp(line);
+        line = this.cpp(line);
         break;
       case 'java':
-        return this.java(line);
+        line = this.java(line);
         break;
       default:
-
     }
+    return line;
   },
   python: function(line){
     /// Python Specific Operations
@@ -99,8 +105,17 @@ ProcessLine.prototype = {
     .replace(/(\s?import|from|for|all|\sin\s|^break|^continue|^pass|^print\s|^if|^el[is][fe])/g, keywordReplacer);
     // console.log("Returning = " + line);
     return line;
+  },
+  cpp: function(line){
+    /// Cpp or C Specific Operations
+    line = line.replace(/(\/\/.*)/, commentReplacer)  // Check for comments
+    /// python's reserved characters Regex Patterns matching
+    .replace(/(^#include|\s?\(?int\s|\s?\(?long\s|^float\s|^char\s|^break;|^if|^else|^else\sif)/g, keywordReplacer);
+    // console.log("Returning = " + line);
+    return line;
   }
-}
+
+};
 /**
  * Process lines through available theme
  * @param line
