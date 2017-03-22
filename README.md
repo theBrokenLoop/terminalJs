@@ -2,6 +2,7 @@
 <img src="/terminalJs_icon.png" height="100px" width="180px">
 
 A easy to use library for building a terminal on webpages of different languages
+
 Just Plugin raw language code and get a beautifull terminal on your webpage like shown below
 
 ## Supported Languages
